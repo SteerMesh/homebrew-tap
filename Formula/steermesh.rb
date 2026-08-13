@@ -1,5 +1,5 @@
-class Mesh < Formula
-  desc "AI-native service mesh CLI for distributed agent orchestration"
+class Steermesh < Formula
+  desc "SteerMesh CLI — AI steering rules compiler and agent orchestration"
   homepage "https://github.com/SteerMesh/steermesh"
   version "0.2.0"
   license "MIT"
