@@ -7,7 +7,7 @@ AI-native service mesh for distributed agent orchestration.
 ### Homebrew (recommended)
 
 ```bash
-brew tap SteerMesh/steermesh
+brew tap SteerMesh/tap
 brew install steermesh
 ```
 
@@ -20,7 +20,7 @@ brew install meshnet
 ### One-liner
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/SteerMesh/steermesh/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/SteerMesh/homebrew-tap/main/install.sh | bash
 ```
 
 ## Components
