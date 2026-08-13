@@ -1,4 +1,4 @@
-class Mesh < Formula
+class Steermesh < Formula
   desc "SteerMesh CLI — AI steering rules compiler and agent orchestration"
   homepage "https://github.com/SteerMesh/homebrew-tap"
   version "0.3.1"

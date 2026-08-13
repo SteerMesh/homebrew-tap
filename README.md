@@ -9,7 +9,7 @@
 ```bash
 brew tap SteerMesh/tap
 brew trust steermesh/tap
-brew install mesh meshnet
+brew install steermesh meshnet
 ```
 
 ### One-liner (no Homebrew needed)
@@ -65,7 +65,7 @@ meshnet serve
 ## Upgrade
 
 ```bash
-brew upgrade mesh meshnet
+brew upgrade steermesh meshnet
 ```
 
 ## Documentation
