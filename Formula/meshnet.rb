@@ -1,26 +1,26 @@
 class Meshnet < Formula
   desc "Networking layer for SteerMesh distributed agent topology"
   homepage "https://github.com/SteerMesh/steermesh"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/SteerMesh/steermesh/releases/download/meshnet-v0.1.0/meshnet-darwin-arm64.tar.gz"
-      sha256 "1a94e8eb38dc21b9c69ec06a9aefdf85463e4c1c488436a306d52a2e4cd12710"
+      url "https://github.com/SteerMesh/steermesh/releases/download/meshnet-v0.2.0/meshnet-darwin-arm64.tar.gz"
+      sha256 "1e813dae1f4f73ec8b7f4509d7bb59e2dc40432f9fe47bc53414aadb60252e52"
     else
-      url "https://github.com/SteerMesh/steermesh/releases/download/meshnet-v0.1.0/meshnet-darwin-amd64.tar.gz"
-      sha256 "867c2c7324f36a301a44fe12aea3b4640ba8bfdd66bba60f729316c2fb09689b"
+      url "https://github.com/SteerMesh/steermesh/releases/download/meshnet-v0.2.0/meshnet-darwin-amd64.tar.gz"
+      sha256 "db31d2d016bf91e03014e8c55f6e996e5d0d072d5cdf247f0f61f29ea52a9b2d"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/SteerMesh/steermesh/releases/download/meshnet-v0.1.0/meshnet-linux-arm64.tar.gz"
-      sha256 "5dbba6b9cb3dfd71ec8140452c92981168887e9257b269d5593152dbd33c748f"
+      url "https://github.com/SteerMesh/steermesh/releases/download/meshnet-v0.2.0/meshnet-linux-arm64.tar.gz"
+      sha256 "451ed79cc6774369b22d5b0f321fbb3ee5aed4f9660d143696c683fd349acc61"
     else
-      url "https://github.com/SteerMesh/steermesh/releases/download/meshnet-v0.1.0/meshnet-linux-amd64.tar.gz"
-      sha256 "867c2c7324f36a301a44fe12aea3b4640ba8bfdd66bba60f729316c2fb09689b"
+      url "https://github.com/SteerMesh/steermesh/releases/download/meshnet-v0.2.0/meshnet-linux-amd64.tar.gz"
+      sha256 "43c0097ee955d19ed1ad472321b0fb92fdbb56c5e3c3079572c9fd7b974e7c20"
     end
   end
 
