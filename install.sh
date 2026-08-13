@@ -4,7 +4,7 @@ set -e
 # SteerMesh installer — installs mesh + meshnet binaries
 # Usage: curl -fsSL https://raw.githubusercontent.com/SteerMesh/homebrew-tap/main/install.sh | bash
 
-MESH_VERSION="v0.3.1"
+MESH_VERSION="v0.3.2"
 MESHNET_VERSION="v0.2.0"
 BASE_URL="https://github.com/SteerMesh/homebrew-tap/releases/download"
 INSTALL_DIR="${INSTALL_DIR:-$HOME/.local/bin}"
