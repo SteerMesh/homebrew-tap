@@ -23,10 +23,16 @@ brew install mesh meshnet
 brew install steermesh/tap/mesh steermesh/tap/meshnet
 ```
 
-### One-liner (all platforms, no Homebrew needed)
+### One-liner (Linux/macOS, no Homebrew needed)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/SteerMesh/homebrew-tap/main/install.sh | bash
+```
+
+### Windows (PowerShell)
+
+```powershell
+irm https://raw.githubusercontent.com/SteerMesh/homebrew-tap/main/install.ps1 | iex
 ```
 
 ## Post-install
