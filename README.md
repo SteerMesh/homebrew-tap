@@ -8,7 +8,7 @@ AI-native service mesh for distributed agent orchestration.
 
 ```bash
 brew tap SteerMesh/steermesh
-brew install mesh
+brew install steermesh
 ```
 
 To also install the networking layer:
