@@ -2,9 +2,11 @@
 set -e
 
 # SteerMesh installer — installs mesh + meshnet binaries
-# Usage: curl -fsSL https://steermesh.dev/install | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/SteerMesh/homebrew-tap/main/install.sh | bash
 
-VERSION="${STEERMESH_VERSION:-latest}"
+MESH_VERSION="v0.3.1"
+MESHNET_VERSION="v0.2.0"
+BASE_URL="https://github.com/SteerMesh/homebrew-tap/releases/download"
 INSTALL_DIR="${INSTALL_DIR:-$HOME/.local/bin}"
 
 # Detect platform
@@ -23,72 +25,40 @@ echo ""
 
 mkdir -p "$INSTALL_DIR"
 
-# ── mesh ───────────────────────────────────────────────────────────────────────
-
-MESH_REPO="SteerMesh/mesh"
-echo "Installing mesh..."
-
-if [ "$VERSION" = "latest" ]; then
-  MESH_URL="https://github.com/${MESH_REPO}/releases/latest/download/mesh-${OS}-${ARCH}"
-else
-  MESH_URL="https://github.com/${MESH_REPO}/releases/download/${VERSION}/mesh-${OS}-${ARCH}"
-fi
-
-if curl -fsSL "$MESH_URL" -o "${INSTALL_DIR}/mesh" 2>/dev/null; then
+# Install mesh
+echo "Installing mesh ${MESH_VERSION}..."
+MESH_URL="${BASE_URL}/mesh-${MESH_VERSION}/mesh-${OS}-${ARCH}.tar.gz"
+if curl -fsSL "$MESH_URL" | tar xz -C "$INSTALL_DIR"; then
   chmod +x "${INSTALL_DIR}/mesh"
-  echo "  ✓ mesh installed ($(${INSTALL_DIR}/mesh version 2>/dev/null || echo 'unknown'))"
+  echo "  ✓ mesh ${MESH_VERSION} installed"
 else
-  echo "  ⚠ mesh binary not found at ${MESH_URL}"
-  echo "    Trying go install..."
-  if command -v go &>/dev/null; then
-    go install "github.com/${MESH_REPO}/cmd/mesh@latest" 2>/dev/null && echo "  ✓ mesh installed via go install" || echo "  ✗ go install failed"
-  else
-    echo "  ✗ Go not installed. Install mesh manually: https://github.com/${MESH_REPO}"
-  fi
+  echo "  ✗ Failed to download mesh from ${MESH_URL}"
+  echo "    Check: https://github.com/SteerMesh/homebrew-tap/releases"
 fi
 
-# ── meshnet ────────────────────────────────────────────────────────────────────
-
-MESHNET_REPO="SteerMesh/meshnet"
-echo "Installing meshnet..."
-
-if [ "$VERSION" = "latest" ]; then
-  MESHNET_URL="https://github.com/${MESHNET_REPO}/releases/latest/download/meshnet-${OS}-${ARCH}"
-else
-  MESHNET_URL="https://github.com/${MESHNET_REPO}/releases/download/${VERSION}/meshnet-${OS}-${ARCH}"
-fi
-
-if curl -fsSL "$MESHNET_URL" -o "${INSTALL_DIR}/meshnet" 2>/dev/null; then
+# Install meshnet
+echo "Installing meshnet ${MESHNET_VERSION}..."
+MESHNET_URL="${BASE_URL}/meshnet-${MESHNET_VERSION}/meshnet-${OS}-${ARCH}.tar.gz"
+if curl -fsSL "$MESHNET_URL" | tar xz -C "$INSTALL_DIR"; then
   chmod +x "${INSTALL_DIR}/meshnet"
-  echo "  ✓ meshnet installed ($(${INSTALL_DIR}/meshnet version 2>/dev/null || echo 'unknown'))"
+  echo "  ✓ meshnet ${MESHNET_VERSION} installed"
 else
-  echo "  ⚠ meshnet binary not found at ${MESHNET_URL}"
-  echo "    Trying go install..."
-  if command -v go &>/dev/null; then
-    go install "github.com/${MESHNET_REPO}/cmd/meshnet@latest" 2>/dev/null && echo "  ✓ meshnet installed via go install" || echo "  ✗ go install failed"
-  else
-    echo "  ✗ Go not installed. Install meshnet manually: https://github.com/${MESHNET_REPO}"
-  fi
+  echo "  ✗ Failed to download meshnet from ${MESHNET_URL}"
+  echo "    Check: https://github.com/SteerMesh/homebrew-tap/releases"
 fi
 
-# ── PATH check ─────────────────────────────────────────────────────────────────
-
+# PATH check
 echo ""
 if echo "$PATH" | grep -q "$INSTALL_DIR"; then
   echo "✓ ${INSTALL_DIR} is in your PATH"
 else
   echo "⚠ Add ${INSTALL_DIR} to your PATH:"
-  echo "  echo 'export PATH=\"${INSTALL_DIR}:\$PATH\"' >> ~/.zshrc"
-  echo "  source ~/.zshrc"
+  echo "  echo 'export PATH=\"${INSTALL_DIR}:\$PATH\"' >> ~/.bashrc"
+  echo "  source ~/.bashrc"
 fi
 
-# ── meshpad ────────────────────────────────────────────────────────────────────
-
 echo ""
-echo "Optional: Install the default meshpad (agent configs):"
-echo "  mesh pad add https://github.com/SteerMesh/meshpad"
-echo ""
-echo "Optional: Initialize meshnet node:"
+echo "Next steps:"
+echo "  mesh pad add https://github.com/SteerMesh/meshpad.git"
 echo "  meshnet init --name $(hostname)"
-echo ""
-echo "Done! Run 'mesh --help' or 'meshnet --help' to get started."
+echo "  mesh chat --agent orchestrator"
