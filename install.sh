@@ -83,6 +83,7 @@ fi
 
 echo ""
 echo "Next steps:"
-echo "  mesh pad add https://github.com/SteerMesh/meshpad.git"
+echo "  mesh doctor                        # first-run setup — clones the genoma content pack, installs synapse"
+echo "  mesh install dev-core               # or another profile — see: mesh list"
 echo "  meshnet init --name $(hostname)"
 echo "  mesh chat --agent orchestrator"
