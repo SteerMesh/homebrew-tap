@@ -73,6 +73,7 @@ if ($currentPath -notlike "*$INSTALL_DIR*") {
 
 Write-Host ''
 Write-Host 'Done! Next steps:' -ForegroundColor Cyan
-Write-Host '  mesh pad add https://github.com/SteerMesh/meshpad.git'
+Write-Host '  mesh doctor                        # first-run setup — clones the genoma content pack, installs synapse'
+Write-Host '  mesh install dev-core               # or another profile — see: mesh list'
 Write-Host '  meshnet init --name $env:COMPUTERNAME'
 Write-Host '  mesh chat --agent orchestrator'
