@@ -3,9 +3,29 @@
 
 $ErrorActionPreference = 'Stop'
 
-$VERSION_MESH = 'v0.3.1'
-$VERSION_MESHNET = 'v0.2.0'
+# Resolve the latest published version for a release-tag prefix (e.g. "mesh"
+# or "meshnet") from this repo's own Releases API, so we never hardcode a
+# version that goes stale. Releases here are tagged "<prefix>-vX.Y.Z" and the
+# API returns them newest-first.
+function Resolve-Latest($prefix) {
+    try {
+        $releases = Invoke-RestMethod "https://api.github.com/repos/SteerMesh/homebrew-tap/releases"
+        $tag = ($releases | Where-Object { $_.tag_name -like "$prefix-v*" } | Select-Object -First 1).tag_name
+        if ($tag) { return $tag.Substring($prefix.Length + 1) }
+        return $null
+    } catch {
+        return $null
+    }
+}
+
+$VERSION_MESH = Resolve-Latest 'mesh'
+$VERSION_MESHNET = Resolve-Latest 'meshnet'
 $INSTALL_DIR = "$env:LOCALAPPDATA\SteerMesh\bin"
+
+if (-not $VERSION_MESH) {
+    Write-Host 'Could not resolve latest mesh release from homebrew-tap. Check: https://github.com/SteerMesh/homebrew-tap/releases' -ForegroundColor Red
+    exit 1
+}
 
 Write-Host 'SteerMesh Installer (Windows)' -ForegroundColor Cyan
 Write-Host "  Install dir: $INSTALL_DIR"
@@ -26,13 +46,18 @@ Remove-Item $meshTar -Force
 Write-Host "  OK mesh $VERSION_MESH" -ForegroundColor Green
 
 # Download meshnet
-Write-Host 'Installing meshnet...' -ForegroundColor Green
-$meshnetUrl = "https://github.com/SteerMesh/homebrew-tap/releases/download/meshnet-$VERSION_MESHNET/meshnet-windows-amd64.tar.gz"
-$meshnetTar = "$env:TEMP\meshnet-windows-amd64.tar.gz"
-Invoke-WebRequest -Uri $meshnetUrl -OutFile $meshnetTar -UseBasicParsing
-tar xzf $meshnetTar -C $INSTALL_DIR
-Remove-Item $meshnetTar -Force
-Write-Host "  OK meshnet $VERSION_MESHNET" -ForegroundColor Green
+if (-not $VERSION_MESHNET) {
+    Write-Host '  Could not resolve latest meshnet release; skipping meshnet install.' -ForegroundColor Yellow
+    Write-Host '    Check: https://github.com/SteerMesh/homebrew-tap/releases' -ForegroundColor Yellow
+} else {
+    Write-Host 'Installing meshnet...' -ForegroundColor Green
+    $meshnetUrl = "https://github.com/SteerMesh/homebrew-tap/releases/download/meshnet-$VERSION_MESHNET/meshnet-windows-amd64.tar.gz"
+    $meshnetTar = "$env:TEMP\meshnet-windows-amd64.tar.gz"
+    Invoke-WebRequest -Uri $meshnetUrl -OutFile $meshnetTar -UseBasicParsing
+    tar xzf $meshnetTar -C $INSTALL_DIR
+    Remove-Item $meshnetTar -Force
+    Write-Host "  OK meshnet $VERSION_MESHNET" -ForegroundColor Green
+}
 
 # Add to PATH if not already there
 $currentPath = [Environment]::GetEnvironmentVariable('Path', 'User')
