@@ -4,6 +4,11 @@ class Meshnet < Formula
   version "0.3.0"
   license "MIT"
 
+  # Last release under the meshnet name. New installs should use meshgrid.
+  deprecate! date:                "2026-09-27",
+             because:             "was renamed to Mesh Grid — install steermesh/tap/meshgrid instead",
+             replacement_formula: "steermesh/tap/meshgrid"
+
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/SteerMesh/homebrew-tap/releases/download/meshnet-v0.3.0/meshnet-darwin-arm64.tar.gz"
@@ -28,7 +33,17 @@ class Meshnet < Formula
     bin.install "meshnet"
   end
 
+  def caveats
+    <<~EOS
+      meshnet has been renamed to meshgrid (Mesh Grid).
+      Existing installs keep working; new installs should use:
+        brew install steermesh/tap/meshgrid
+    EOS
+  end
+
   test do
-    assert_match "meshnet version", shell_output("#{bin}/meshnet --version")
+    # v0.3.0 has a `version` subcommand but no `--version` flag
+    # (that flag only landed on the renamed meshgrid binary).
+    assert_match "meshnet v0.3.0", shell_output("#{bin}/meshnet version")
   end
 end
