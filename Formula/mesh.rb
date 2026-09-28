@@ -1,26 +1,26 @@
 class Mesh < Formula
   desc "SteerMesh CLI — AI steering rules compiler and agent orchestration"
   homepage "https://github.com/SteerMesh/homebrew-tap"
-  version "0.6.0"
+  version "0.7.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/SteerMesh/homebrew-tap/releases/download/mesh-v0.6.0/mesh-darwin-arm64.tar.gz"
-      sha256 "a121f803f6dbecb7d839033a69963d7a8fb200d5dfb6da1cda6eb22186b2de1a"
+      url "https://github.com/SteerMesh/homebrew-tap/releases/download/mesh-v0.7.0/mesh-darwin-arm64.tar.gz"
+      sha256 "7afadc2aa925023513573089ad8b8886ba0547a406e4aa2eba1a0bf2de551fa1"
     else
-      url "https://github.com/SteerMesh/homebrew-tap/releases/download/mesh-v0.6.0/mesh-darwin-amd64.tar.gz"
-      sha256 "9f061c087293b49ee6479ccfcf5d3696224f717ba0c8291f73b7e038b6fca206"
+      url "https://github.com/SteerMesh/homebrew-tap/releases/download/mesh-v0.7.0/mesh-darwin-amd64.tar.gz"
+      sha256 "089f92c954678b50d357c0bacf8c13c60e8d12b9231d0bf33adcbeaac65fdf1a"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/SteerMesh/homebrew-tap/releases/download/mesh-v0.6.0/mesh-linux-arm64.tar.gz"
-      sha256 "7f4ca52c942695063e1a5bb32807be706bcee06592ce2101566e802fa2595c04"
+      url "https://github.com/SteerMesh/homebrew-tap/releases/download/mesh-v0.7.0/mesh-linux-arm64.tar.gz"
+      sha256 "d46de48f72c47e5261200eb73067c8c8da3db5a2219263a2da9e5bf47e973d77"
     else
-      url "https://github.com/SteerMesh/homebrew-tap/releases/download/mesh-v0.6.0/mesh-linux-amd64.tar.gz"
-      sha256 "b33d7c44225d630c119a627bd98e6e46be77e89556c58af468461f2b3b7a41d5"
+      url "https://github.com/SteerMesh/homebrew-tap/releases/download/mesh-v0.7.0/mesh-linux-amd64.tar.gz"
+      sha256 "ecd5947b5a88921eac70023c0424447d4594d9afb39479d2f0bc1737161fd782"
     end
   end
 
