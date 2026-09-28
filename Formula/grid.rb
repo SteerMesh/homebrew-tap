@@ -1,26 +1,26 @@
 class Grid < Formula
   desc "P2P compute node for SteerMesh (successor to meshnet/meshgrid)"
   homepage "https://github.com/SteerMesh/homebrew-tap"
-  version "0.1.2"
+  version "0.1.3"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/SteerMesh/homebrew-tap/releases/download/grid-v0.1.2/grid-darwin-arm64.tar.gz"
-      sha256 "ced0934fda4ff5b9d0186f8068ab9d8daad3a350079b7c61798580849864be0d"
+      url "https://github.com/SteerMesh/homebrew-tap/releases/download/grid-v0.1.3/grid-darwin-arm64.tar.gz"
+      sha256 "0cb24e0d0594da1407d8a33956e20e79d342e1bf40c800e85c4a9db8e02367b8"
     else
-      url "https://github.com/SteerMesh/homebrew-tap/releases/download/grid-v0.1.2/grid-darwin-amd64.tar.gz"
-      sha256 "4a0549eb5da0902beb9c8a4f19f8594708d22ed202669a8fb09774949e0007fb"
+      url "https://github.com/SteerMesh/homebrew-tap/releases/download/grid-v0.1.3/grid-darwin-amd64.tar.gz"
+      sha256 "f10ae7df3b36f48536b68d44b0096d16b5ecf2641eea7cec187f26b32651f931"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/SteerMesh/homebrew-tap/releases/download/grid-v0.1.2/grid-linux-arm64.tar.gz"
-      sha256 "e191f1fff45e33a4b8e025527157b08014009abc1420377b9fb8cf076981ad2f"
+      url "https://github.com/SteerMesh/homebrew-tap/releases/download/grid-v0.1.3/grid-linux-arm64.tar.gz"
+      sha256 "49d2937405e4053fba06e6d9241d0b7cc9cfc721c49b6e881d9f0033bb862d58"
     else
-      url "https://github.com/SteerMesh/homebrew-tap/releases/download/grid-v0.1.2/grid-linux-amd64.tar.gz"
-      sha256 "91704c821b8bd3e0b11a33ba10dd9386b113d381da73268fdbf71155c62b79f5"
+      url "https://github.com/SteerMesh/homebrew-tap/releases/download/grid-v0.1.3/grid-linux-amd64.tar.gz"
+      sha256 "6f02b4b016b40edd7f06093e88af214a9afa451b00ec319943cdd282a5fc620a"
     end
   end
 
