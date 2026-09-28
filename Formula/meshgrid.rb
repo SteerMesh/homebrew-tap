@@ -1,8 +1,13 @@
 class Meshgrid < Formula
-  desc "P2P compute node for SteerMesh (successor to meshnet)"
+  desc "P2P compute node for SteerMesh (renamed to grid)"
   homepage "https://github.com/SteerMesh/homebrew-tap"
   version "0.1.0"
   license "MIT"
+
+  # Last release under the meshgrid name. New installs should use grid.
+  deprecate! date:                "2026-09-28",
+             because:             "was renamed to grid (dropping the mesh- prefix, family-wide) — install steermesh/tap/grid instead",
+             replacement_formula: "steermesh/tap/grid"
 
   on_macos do
     if Hardware::CPU.arm?
@@ -28,7 +33,19 @@ class Meshgrid < Formula
     bin.install "meshgrid"
   end
 
+  def caveats
+    <<~EOS
+      meshgrid has been renamed to grid (dropping the mesh- prefix family-wide).
+      Existing installs keep working; new installs should use:
+        brew install steermesh/tap/grid
+    EOS
+  end
+
   test do
+    # v0.1.0 predates the CLI-string fix that landed with the grid rename
+    # (that release's own --version output was correct as "meshgrid version
+    # v0.1.0" — this formula is frozen at that release, so the assertion
+    # below is still accurate for what it actually installs).
     assert_match "meshgrid version v0.1.0", shell_output("#{bin}/meshgrid --version")
   end
 end
