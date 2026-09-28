@@ -7,20 +7,20 @@ class Grid < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/SteerMesh/homebrew-tap/releases/download/grid-v0.1.3/grid-darwin-arm64.tar.gz"
-      sha256 "0cb24e0d0594da1407d8a33956e20e79d342e1bf40c800e85c4a9db8e02367b8"
+      sha256 "5ec7346cad27ea2c146055d53da3d4445a083b7e16c2e33045faf5c46dcd5547"
     else
       url "https://github.com/SteerMesh/homebrew-tap/releases/download/grid-v0.1.3/grid-darwin-amd64.tar.gz"
-      sha256 "f10ae7df3b36f48536b68d44b0096d16b5ecf2641eea7cec187f26b32651f931"
+      sha256 "a69c71f9eefdb31776d1a5d51eaba9759468bc18d8dbcabefbf3ae139aa18e32"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/SteerMesh/homebrew-tap/releases/download/grid-v0.1.3/grid-linux-arm64.tar.gz"
-      sha256 "49d2937405e4053fba06e6d9241d0b7cc9cfc721c49b6e881d9f0033bb862d58"
+      sha256 "f9d67485bd6e1c1b7ea3dbab7c5f35262a512ce9a6b64161ba389d97325c73bc"
     else
       url "https://github.com/SteerMesh/homebrew-tap/releases/download/grid-v0.1.3/grid-linux-amd64.tar.gz"
-      sha256 "6f02b4b016b40edd7f06093e88af214a9afa451b00ec319943cdd282a5fc620a"
+      sha256 "4a7446aa936ad5168c5ec66f084368544378c4f317e2d21f0779f25c0e37ee06"
     end
   end
 
