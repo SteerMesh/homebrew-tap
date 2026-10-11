@@ -1,26 +1,26 @@
 class Vaultbreak < Formula
   desc "CLI for VaultBreak — secrets, handoffs, and MCP for agents"
   homepage "https://github.com/SteerMesh/homebrew-tap"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/SteerMesh/homebrew-tap/releases/download/vaultbreak-v0.1.0/vaultbreak-darwin-arm64.tar.gz"
-      sha256 "de5acab186dc07ad947e42e2644d3739a8fca268ef417cecc5094545115bc65b"
+      url "https://github.com/SteerMesh/homebrew-tap/releases/download/vaultbreak-v0.1.1/vaultbreak-darwin-arm64.tar.gz"
+      sha256 "5d725f619f92021ef49500444a90a00a9b15a8ce82b5ed59b50aed9428081dd0"
     else
-      url "https://github.com/SteerMesh/homebrew-tap/releases/download/vaultbreak-v0.1.0/vaultbreak-darwin-amd64.tar.gz"
-      sha256 "2f91909806dc07489afd0616d94043eca445b8dec31fa62605ccc4d419a86f31"
+      url "https://github.com/SteerMesh/homebrew-tap/releases/download/vaultbreak-v0.1.1/vaultbreak-darwin-amd64.tar.gz"
+      sha256 "653c75deb914d0bac56b6f45f5c9a4f79cc8763c9d4ca4bb4b25cfe009cfac01"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/SteerMesh/homebrew-tap/releases/download/vaultbreak-v0.1.0/vaultbreak-linux-arm64.tar.gz"
-      sha256 "fcbdd87c3d166b15907bcd5c3a9352d6604aaf5443541a919f41aedda5ccda87"
+      url "https://github.com/SteerMesh/homebrew-tap/releases/download/vaultbreak-v0.1.1/vaultbreak-linux-arm64.tar.gz"
+      sha256 "10916ee821da2e994c9aee94e2e3b3b69659732ac2bd82b140aa88f4b652482d"
     else
-      url "https://github.com/SteerMesh/homebrew-tap/releases/download/vaultbreak-v0.1.0/vaultbreak-linux-amd64.tar.gz"
-      sha256 "a66c69055c15ae3b6f29ae1323e0eb88e6c67406b1b00904b7c33086d28c3591"
+      url "https://github.com/SteerMesh/homebrew-tap/releases/download/vaultbreak-v0.1.1/vaultbreak-linux-amd64.tar.gz"
+      sha256 "fa9f81864f473a85eb9f58dbda33928d6e2d68f1ded247fc5046f6367aa2c0dc"
     end
   end
 
