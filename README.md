@@ -14,13 +14,13 @@ brew trust steermesh/tap
 **Linux:**
 
 ```bash
-brew install mesh meshnet
+brew install mesh meshnet vaultbreak
 ```
 
-**macOS** (requires `--formula` to avoid conflict with an unrelated cask):
+**macOS** (requires tap-qualified names to avoid conflict with an unrelated cask):
 
 ```bash
-brew install steermesh/tap/mesh steermesh/tap/meshnet
+brew install steermesh/tap/mesh steermesh/tap/meshnet steermesh/tap/vaultbreak
 ```
 
 ### One-liner (Linux/macOS, no Homebrew needed)
@@ -48,10 +48,11 @@ meshnet serve
 
 ## What's included
 
-| Binary    | Purpose                                                  |
-|-----------|----------------------------------------------------------|
-| `mesh`    | AI steering rules compiler + agentic runtime + TUI       |
-| `meshnet` | P2P AI compute network — earn FLUX by sharing backends   |
+| Binary       | Purpose                                                  |
+|--------------|----------------------------------------------------------|
+| `mesh`       | AI steering rules compiler + agentic runtime + TUI       |
+| `meshnet`    | P2P AI compute network — earn FLUX by sharing backends   |
+| `vaultbreak` | VaultBreak CLI — secrets, handoffs, MCP for agents       |
 
 ## Upgrade
 
